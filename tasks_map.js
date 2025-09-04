@@ -3,7 +3,7 @@ const lista = document.getElementById("lista")
 let tasks = new Map()
 let taskId = 0
 
-export function addTask(text) {
+function addTask(text) {
     tasks.set(taskId, {
         text,
         complete: false
@@ -11,22 +11,22 @@ export function addTask(text) {
     taskId++
 }
 
-export function removeTask(id) {
+function removeTask(id) {
     tasks.delete(id)
 }
 
-export function toggleComplete(id, isComplete) {
+function toggleComplete(id, isComplete) {
     const task = tasks.get(id)
     task.complete = isComplete
 }
 
-export function markAllAsComplete() {
+function markAllAsComplete() {
     for (const task of tasks.values()) {
         task.complete = true
     }
 }
 
-export function removeCompleted() {
+function removeCompleted() {
     for (const [id, task] of tasks.entries()) {
         if (task.complete) {
             removeTask(id)
@@ -34,11 +34,11 @@ export function removeCompleted() {
     }
 }
 
-export function clearTasks() {
+function clearTasks() {
     tasks = new Map()
 }
 
-export function render(completeOnly = false) {
+function render(completeOnly = false) {
     while (lista.lastChild) {
         lista.removeChild(lista.lastChild);
     }

@@ -1,5 +1,3 @@
-import { addTask, clearTasks, markAllAsComplete, removeCompleted, render } from "./tasks_map.js"
-
 const input = document.getElementById("text")
 const form = document.getElementById("form")
 const clearButton = document.getElementById("clear")

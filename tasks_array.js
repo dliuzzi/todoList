@@ -2,36 +2,36 @@ const lista = document.getElementById("lista")
 
 let tasks = []
 
-export function addTask(text) {
+function addTask(text) {
     tasks.push({
         text,
         complete: false
     })
 }
 
-export function removeTask(id) {
+function removeTask(id) {
     tasks.splice(id, 1)
 }
 
-export function toggleComplete(id, isComplete) {
+function toggleComplete(id, isComplete) {
     tasks[id].complete = isComplete
 }
 
-export function markAllAsComplete() {
+function markAllAsComplete() {
     for (const task of tasks.values()) {
         task.complete = true
     }
 }
 
-export function removeCompleted() {
+function removeCompleted() {
     tasks = tasks.filter((task, _idx, _array) => !task.complete)
 }
 
-export function clearTasks() {
+function clearTasks() {
     tasks = []
 }
 
-export function render(completeOnly = false) {
+function render(completeOnly = false) {
     while (lista.lastChild) {
         lista.removeChild(lista.lastChild);
     }
