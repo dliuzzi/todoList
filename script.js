@@ -1,48 +1,15 @@
+import { addTask, clearTasks, markAllAsComplete, removeCompleted, render } from "./tasks_map.js"
+
 const input = document.getElementById("text")
-const lista = document.getElementById("lista")
+const form = document.getElementById("form")
+const clearButton = document.getElementById("clear")
+const markAllCompleteButton = document.getElementById("markAllComplete")
+const removeCompleteButton = document.getElementById("removeComplete")
+const showCompleteCheckbox = document.getElementById("showComplete")
 
-let tasks = []
+let showOnlyComplete = false
 
-const removeChilds = (parent) => {
-    while (parent.lastChild) {
-        parent.removeChild(parent.lastChild);
-    }
-}
-
-function renderTasks() {
-    removeChilds(lista)
-    for (const [index, task] of tasks.entries()) {
-        const element = document.createElement("li")
-
-        const deleteButton = document.createElement("i")
-        deleteButton.classList = "fa-solid fa-xmark delete"
-        deleteButton.addEventListener("click", (_ev) => {
-            tasks.splice(index, 1)
-            renderTasks()
-        })
-
-        element.appendChild(deleteButton)
-
-        const checkbox = document.createElement("input")
-        checkbox.setAttribute("type", "checkbox")
-        checkbox.checked = task.complete
-        checkbox.addEventListener("change", (_ev) => {
-            tasks[index].complete = checkbox.checked
-        })
-
-        element.appendChild(checkbox)
-
-        element.append(task.text)
-        lista.appendChild(element)
-    }
-}
-
-function deleteAllTasks() {
-    tasks = []
-    renderTasks()
-}
-
-function addTask(event) {
+form.addEventListener("submit", (event) => {
     event.preventDefault()
     let text = input.value
     if (text === "") {
@@ -51,9 +18,26 @@ function addTask(event) {
     }
 
     input.value = ""
-    tasks.push({
-        text,
-        complete: false
-    })
-    renderTasks()
-}
+    addTask(text)
+    render(showOnlyComplete)
+})
+
+clearButton.addEventListener("click", (_event) => {
+    clearTasks()
+    render(showOnlyComplete)
+})
+
+markAllCompleteButton.addEventListener("click", (_event) => {
+    markAllAsComplete()
+    render(showOnlyComplete)
+})
+
+removeCompleteButton.addEventListener("click", (_event) => {
+    removeCompleted()
+    render(showOnlyComplete)
+})
+
+showCompleteCheckbox.addEventListener("click", (_event) => {
+    showOnlyComplete = showCompleteCheckbox.checked
+    render(showOnlyComplete)
+})

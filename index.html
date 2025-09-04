@@ -13,16 +13,21 @@
         </header>
 
         <div class="form-div">
-            <form class="form" onsubmit="addTask(event)">
+            <form id="form">
                 <input type="text" id="text" placeholder="Inserisci città...">
                 <br>
-                <button type="submit" id="invia">Aggiungi</button>
-                <button type="button" id="cancella" onclick="deleteAllTasks()">Cancella</button>
+                <button type="submit">Aggiungi</button>
+                <button type="button" id="clear">Cancella</button>
+                <button type="button" id="markAllComplete">Rendi tutti completi</button>
+                <button type="button" id="removeComplete">Rimuovi completi</button>
+                <br>
+                <label for="showComplete">Mostra solo completati:</label>
+                <input type="checkbox" id="showComplete">
             </form>
         </div>
 
         <ul id="lista"></ul>
     </div>
-    <script src="script.js"></script>
+    <script type="module" src="script.js"></script>
 </body>
 </html>

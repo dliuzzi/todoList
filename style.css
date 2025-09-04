@@ -50,12 +50,12 @@ header {
     min-width: 20rem;
 }
 
-.form {
+#form {
     display: inline-block;
     min-width: 20rem;
 }
 
-.form * {
+#form * {
     margin-bottom: 0.5rem;
 }
 
