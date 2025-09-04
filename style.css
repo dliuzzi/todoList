@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    font-family: 'Roboto';
+}
+
+body {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+
+body {
+    background-color: darkslateblue;
+}
+
+header {
+  background: #376ab8;
+  background: linear-gradient(90deg, rgba(55, 106, 184, 1) 0%, rgba(92, 157, 255, 1) 100%);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+}
+
+.box {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    padding: 1rem;
+    width: 40rem;
+    background-color: white;
+    border-radius: 1rem;
+    padding-top: 0;
+    padding-left: 0;
+    padding-right: 0;
+    overflow: hidden;
+}
+
+.title {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0;
+    margin-bottom: 0;
+    text-align: center;
+}
+
+.form-div {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    min-width: 20rem;
+}
+
+.form {
+    display: inline-block;
+    min-width: 20rem;
+}
+
+.form * {
+    margin-bottom: 0.5rem;
+}
+
+button {
+  background: #5C9DFF;
+  padding: 0.5rem;
+  padding-top: 0.3rem;
+  padding-bottom: 0.3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  border: none;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 3px 10px 0 rgba(0, 0, 0, 0.19);
+}
+
+input {
+  border-radius: 0.5rem;
+}
+
+.delete {
+  color: red;
+  cursor: pointer;
+}

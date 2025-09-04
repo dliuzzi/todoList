@@ -1,0 +1,28 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="box">
+        <header>
+            <h1 class="title">🏙️ Città da visitare</h1>
+        </header>
+
+        <div class="form-div">
+            <form class="form" onsubmit="addTask(event)">
+                <input type="text" id="text" placeholder="Inserisci città...">
+                <br>
+                <button type="submit" id="invia">Aggiungi</button>
+                <button type="button" id="cancella" onclick="deleteAllTasks()">Cancella</button>
+            </form>
+        </div>
+
+        <ul id="lista"></ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
