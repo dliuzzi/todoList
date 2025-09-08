@@ -9,7 +9,7 @@ let showOnlyComplete = false
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
-    let text = input.value
+    let text = input.value.trim()
     if (text === "") {
         alert("Il valore da inserire non può essere vuoto")
         return
