@@ -7,6 +7,32 @@ const showCompleteCheckbox = document.getElementById("showComplete")
 
 let showOnlyComplete = false
 
+function fetchTaskList() {
+    return new Promise((resolve, reject) => {
+        fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
+            .then((r) => {
+                if (!r.ok) {
+                    reject('Richiesta fallita')
+                } else {
+                    return r
+                }
+            })
+            .then((r) => r.json())
+            .then((json) => resolve(json))
+            .catch((r) => reject(r))
+    })
+}
+
+async function addPlaceholderTasks() {
+    const tasks = await fetchTaskList()
+    for (const task of tasks) {
+        addTask(task.title)
+    }
+    render(showOnlyComplete)
+}
+
+addPlaceholderTasks()
+
 form.addEventListener("submit", (event) => {
     event.preventDefault()
     let text = input.value.trim()
