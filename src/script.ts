@@ -1,13 +1,19 @@
-const input = document.getElementById("text")
-const form = document.getElementById("form")
-const clearButton = document.getElementById("clear")
-const markAllCompleteButton = document.getElementById("markAllComplete")
-const removeCompleteButton = document.getElementById("removeComplete")
-const showCompleteCheckbox = document.getElementById("showComplete")
+import { addTask, clearTasks, markAllAsComplete, removeCompleted, render } from "./tasks_map"
+
+const input = <HTMLInputElement>document.getElementById("text")
+const form = <HTMLFormElement>document.getElementById("form")
+const clearButton = <HTMLButtonElement>document.getElementById("clear")
+const markAllCompleteButton = <HTMLButtonElement>document.getElementById("markAllComplete")
+const removeCompleteButton = <HTMLButtonElement>document.getElementById("removeComplete")
+const showCompleteCheckbox = <HTMLInputElement>document.getElementById("showComplete")
 
 let showOnlyComplete = false
 
-function fetchTaskList() {
+interface Todo {
+    title: string
+}
+
+function fetchTaskList(): Promise<Todo[]> {
     return new Promise((resolve, reject) => {
         fetch('https://jsonplaceholder.typicode.com/todos?_limit=5')
             .then((r) => {
@@ -17,7 +23,7 @@ function fetchTaskList() {
                     return r
                 }
             })
-            .then((r) => r.json())
+            .then((r) => r!.json())
             .then((json) => resolve(json))
             .catch((r) => reject(r))
     })
@@ -35,7 +41,7 @@ addPlaceholderTasks()
 
 form.addEventListener("submit", (event) => {
     event.preventDefault()
-    let text = input.value.trim()
+    const text = input.value.trim()
     if (text === "") {
         alert("Il valore da inserire non può essere vuoto")
         return

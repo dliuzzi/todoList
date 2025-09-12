@@ -1,0 +1,9 @@
+{
+  "devDependencies": {
+    "esbuild": "^0.25.9",
+    "typescript": "^5.9.2"
+  },
+  "scripts": {
+    "build": "tsc && esbuild dist/script.js --bundle --outfile=bundle.js"
+  }
+}
