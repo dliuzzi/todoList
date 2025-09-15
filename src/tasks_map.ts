@@ -1,23 +1,9 @@
+import { Citta } from "./citta"
+
 const lista = <HTMLUListElement>document.getElementById("lista")
 
 let tasks = new Map()
 let taskId = 0
-
-class Citta {
-    constructor(private text: string, private complete: boolean) {}
-
-    getText() {
-        return this.text
-    }
-
-    isComplete() {
-        return this.complete
-    }
-
-    toggleComplete(isComplete: boolean) {
-        this.complete = isComplete
-    }
-}
 
 export function addTask(text: string) {
     const citta = new Citta(text, false)
